@@ -2,6 +2,7 @@ import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import {ReCaptcha} from "./components/ReCaptcha";
 import {URLParser} from "./components/URLParser";
 import {Web2Any} from "./components/Web2Any";
+import {ResetLink} from "./components/ResetLink";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -47,5 +48,11 @@ PLASMIC.registerComponent(Web2Any, {
     object: 'string',
     redirectUrl: 'string',
     errorRedirectURL: 'string',
+  }
+});
+PLASMIC.registerComponent(ResetLink, {
+  name: "ResetLink",
+  props: {
+    children: 'slot'
   }
 });
