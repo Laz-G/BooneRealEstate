@@ -11,7 +11,8 @@ export function URLParser({config, showInEditor}:{config: Record<string, string>
             const params = url.searchParams;
             const paramsArray = Array.from(params.entries());
             paramsArray.forEach(([key, value]) => {
-                const input: HTMLInputElement | null = document.querySelector(`#${config[key] || key}`);
+                const id = config && config[key] || key
+                const input: HTMLInputElement | null = document.querySelector(`#${id}`);
                 if (input) {
                     input.value = value;
                 }
