@@ -1,4 +1,7 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import {ReCaptcha} from "./components/ReCaptcha";
+import {URLParser} from "./components/URLParser";
+import {Web2Any} from "./components/Web2Any";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -23,3 +26,26 @@ export const PLASMIC = initPlasmicLoader({
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
 // PLASMIC.registerComponent(...);
+PLASMIC.registerComponent(ReCaptcha, {
+  name: "ReCaptcha",
+  props: {
+    apiKey: 'string',
+    showInEditor: 'boolean',
+    inputId: 'string'
+  }
+});
+PLASMIC.registerComponent(URLParser, {
+  name: "URLParser",
+  props: {
+    config: 'object',
+    showInEditor: 'boolean'
+  }
+});
+PLASMIC.registerComponent(Web2Any, {
+  name: "Web2Any",
+  props: {
+    object: 'string',
+    redirectUrl: 'string',
+    errorRedirectURL: 'string',
+  }
+});
