@@ -16,6 +16,8 @@ export function ResetLink({className, children}: {children: ReactNodeLike, class
         if (currentElement) {
             const form = currentElement.closest('form');
             currentElement.querySelector('a')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 form?.reset();
             });
         }
