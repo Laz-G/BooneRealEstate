@@ -39,6 +39,7 @@ export function ResetLink({
                         }
                     });
                     form?.reset();
+                    setShowComponent(false);
                 });
             }
         }
